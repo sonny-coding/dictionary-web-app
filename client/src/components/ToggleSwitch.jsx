@@ -1,8 +1,7 @@
 // eslint-disable-next-line react/prop-types
-const ToggleSwitch = ({ isDark, setDark }) => {
+const ToggleSwitch = ({ toggleDark }) => {
   const handleChange = () => {
-    setDark((prev) => !prev);
-    console.log(isDark);
+    toggleDark();
   };
   return (
     <label
