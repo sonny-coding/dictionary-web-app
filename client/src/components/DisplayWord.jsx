@@ -10,9 +10,13 @@ const DisplayWord = ({ word }) => {
   const { data, error, isLoading } = useWord(word);
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
-  const phonentics = data[0].phonetics.find((item) => item.text && item.audio);
+
+  const phonetics =
+    data[0].phonetics.find((item) => item.text && item.audio) ||
+    data[0].phonetics.find((item) => item.text);
+
   const playAudio = () => {
-    const audio = new Audio(phonentics.audio);
+    const audio = new Audio(phonetics.audio);
     audio.play();
   };
   const meanings = data[0].meanings.map((each) => {
@@ -24,7 +28,7 @@ const DisplayWord = ({ word }) => {
       //   source: each.sourceUrls,
     };
   });
-  console.log(meanings);
+  // console.log(meanings);
   const sourceUrl = data[0].sourceUrls;
 
   //   console.log(data, isLoading, error);
@@ -36,13 +40,15 @@ const DisplayWord = ({ word }) => {
             {data[0].word}
           </span>
           <span className="font-normal text-[18px] leading-[24px] text-purple mt-2">
-            {phonentics.text}
+            {phonetics.text}
           </span>
         </div>
         <div>
-          <button onClick={playAudio}>
-            <IconPlay />
-          </button>
+          {phonetics.audio && (
+            <button onClick={playAudio}>
+              <IconPlay />
+            </button>
+          )}
         </div>
       </div>
       {meanings.map((each) => (
