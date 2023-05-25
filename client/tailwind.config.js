@@ -20,7 +20,14 @@ export default {
         lora: ["Lora", "serif"],
         inconsolata: ["Inconsolata", "monospace"],
       },
+      backgroundImage: {
+        search: 'url("./src/assets/images/icon-search.svg")',
+      },
+      backgroundPosition: {
+        "right-4": "right 2rem center",
+      },
     },
   },
   plugins: [],
+  darkMode: "class",
 };

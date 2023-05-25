@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 // import React from "react";
-const DefinitionCard = ({ partOfSpeech, definitions }) => {
+const Definitions = ({ partOfSpeech, definitions, synonyms }) => {
   // const items = ;
   return (
     <div className="flex flex-col items-start justify-start mt-5">
@@ -21,8 +21,17 @@ const DefinitionCard = ({ partOfSpeech, definitions }) => {
           </li>
         ))}
       </ul>
+      <div className="w-full flex items-start justify-start text-[16px] leading-[21px] flex-wrap mt-6">
+        <span className="mr-10 font-normal text-gray1">Synonyms</span>
+        {synonyms.map((each, index) => (
+          <span className="inline font-bold text-purple" key={index}>
+            {each}
+            {index + 1 < synonyms.length && ","}&nbsp;
+          </span>
+        ))}
+      </div>
     </div>
   );
 };
 
-export default DefinitionCard;
+export default Definitions;

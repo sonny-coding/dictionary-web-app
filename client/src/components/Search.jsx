@@ -2,7 +2,7 @@ import { IconSearch } from "../assets/images";
 import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
-const Search = ({ word, setWord }) => {
+const Search = ({ setWord }) => {
   const [input, setInput] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,21 +16,19 @@ const Search = ({ word, setWord }) => {
   };
   return (
     <form
-      className="w-full bg-gray3 rounded-2xl flex justify-center items-center focus:bg-black"
+      className="flex items-center justify-center w-full bg-gray3 rounded-2xl"
       action="submit"
       onSubmit={handleSubmit}
     >
       <input
-        className="w-full bg-transparent text-[20px] leading-[24px] font-bold px-6 py-3 outline-none focus:border-2 peer"
+        className="w-full bg-transparent text-[16px] leading-[17px] font-bold px-6 py-3 outline-none text-black3 "
         type="text"
-        placeholder="search a word"
+        placeholder="search for any word..."
         value={input}
         onChange={handleChange}
       />
-      <button
-        type="submit"
-        className="bg-transparent w-max h-max px-4 peer-focus:border-2"
-      >
+
+      <button type="submit" className="px-4 bg-transparent w-max h-max">
         <IconSearch />
       </button>
     </form>

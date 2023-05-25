@@ -2,7 +2,7 @@
 import { useWord } from "../hooks/useWord";
 import { IconPlay } from "../assets/images";
 import { v4 as uuidv4 } from "uuid";
-import DefinitionCard from "./DefinitionCard";
+import Definitions from "./Definitions";
 import { IconNewWindow } from "../assets/images";
 
 // eslint-disable-next-line react/prop-types
@@ -24,11 +24,12 @@ const DisplayWord = ({ word }) => {
       id: uuidv4(),
       partOfSpeech: each.partOfSpeech,
       definitions: each.definitions.map((each) => each.definition),
-      synonyms: each.definitions.map((each) => each.synonyms),
+      synonyms: each.synonyms,
       //   source: each.sourceUrls,
     };
   });
-  // console.log(meanings);
+  console.log(data[0].meanings.map((each) => each.synonyms).flat());
+  console.log(meanings);
   const sourceUrl = data[0].sourceUrls;
 
   //   console.log(data, isLoading, error);
@@ -52,13 +53,14 @@ const DisplayWord = ({ word }) => {
         </div>
       </div>
       {meanings.map((each) => (
-        <DefinitionCard
+        <Definitions
           key={each.id}
           partOfSpeech={each.partOfSpeech}
           definitions={each.definitions}
+          synonyms={each.synonyms}
         />
       ))}
-      <div className="flex flex-col w-full text-[14px] font-normal leading-[17px] underline underline-offset-4 border-t-[1px] border-gray2 mt-8">
+      <div className="flex flex-col w-full text-[14px] font-normal leading-[17px] underline underline-offset-4 border-t-[1px] border-gray2 mt-8 mb-8">
         <span className="mt-6 text-gray1">Source</span>
         <div className="flex items-center mt-2 justify-normal">
           <span>{sourceUrl}</span>
