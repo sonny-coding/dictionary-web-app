@@ -11,7 +11,7 @@ export function useWord(word) {
 
   return {
     data,
+    error,
     isLoading,
-    isError: error,
   };
 }
