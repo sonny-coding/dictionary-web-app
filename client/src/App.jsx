@@ -3,6 +3,7 @@ import { Logo, Moon, MoonDark } from "./assets/images";
 import ToggleSwitch from "./components/ToggleSwitch";
 import Dropdown from "./components/Dropdown";
 import Search from "./components/Search";
+import NewSearch from "./components/NewSearch";
 import { useToggle } from "./hooks/useToggle";
 import DisplayWord from "./components/DisplayWord";
 export default function App() {
@@ -31,6 +32,7 @@ export default function App() {
             setWord={setWord}
             // toggleValidated={toggleValidated}
           />
+          <NewSearch />
         </div>
         <div className="w-full"></div>
         {<DisplayWord word={word} />}

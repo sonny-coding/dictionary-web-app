@@ -21,7 +21,7 @@ const Search = ({ setWord }) => {
       onSubmit={handleSubmit}
     >
       <input
-        className="w-full bg-transparent text-[16px] leading-[17px] font-bold px-6 py-3 outline-none  "
+        className="w-full bg-transparent text-[16px] leading-[17px] font-bold px-6 py-3 outline-none"
         type="text"
         placeholder="search for any word..."
         value={input}
