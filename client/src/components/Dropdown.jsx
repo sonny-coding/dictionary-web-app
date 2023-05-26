@@ -9,13 +9,13 @@ const Dropdown = ({ setFont }) => {
     <div className="relative">
       <button
         onClick={toggleIsOpen}
-        className="flex items-center justify-between gap-4 pr-5 border-r-2 border-gray2"
+        className="flex items-center justify-between gap-4 pr-5 border-r-2 border-gray2 text-[14px] font-bold leading-[24px] md:text-[18px]"
       >
         {fontName}
         <ArrowDown />
       </button>
       {isOpen && (
-        <div className="absolute w-[150px] h-[152px] right-0 top-9 flex flex-col justify-around items-start [&>*]:hover:cursor-pointer text-[18px] leading-[24px] font-bold p-1 bg-white rounded-lg drop-shadow-xl">
+        <div className="absolute w-[150px] h-[152px] right-0 top-9 flex flex-col justify-around items-start [&>*]:hover:cursor-pointer text-[18px] leading-[24px] font-bold p-1 bg-white rounded-lg drop-shadow-xl dark:bg-black2 dark:text-white dark:drop-shadow-xl dark:shadow-orange-500">
           <span
             className="font-inter"
             onClick={() => {

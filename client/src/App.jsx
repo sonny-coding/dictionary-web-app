@@ -11,9 +11,9 @@ export default function App() {
   const [isDark, toggleDark] = useToggle();
 
   return (
-    <div className={`${font} ${isDark ? "dark" : ""}`}>
+    <div className={`${font} ${isDark ? "dark bg-black" : ""}`}>
       <div
-        className={` w-full flex flex-col justify-center items-center gap-5 p-2 dark:bg-black1 dark:text-white`}
+        className={`w-full max-w-[736px] mx-auto min-h-screen h-auto flex flex-col justify-start items-center gap-5 p-6 md:px-10 dark:bg-black1 dark:text-white`}
       >
         <div className="flex items-center justify-between w-full ">
           <div className="logo">
