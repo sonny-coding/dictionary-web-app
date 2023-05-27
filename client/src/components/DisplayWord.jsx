@@ -12,9 +12,8 @@ const DisplayWord = ({ word }) => {
   if (error) return <Error />;
   if (isLoading) return <div>loading...</div>;
 
-  const phonetics =
-    data[0].phonetics.find((item) => item.text && item.audio) ||
-    data[0].phonetics.find((item) => item.text);
+  const phonetics = data[0].phonetics.find((item) => item.text && item.audio) ||
+    data[0].phonetics.find((item) => item.text) || { text: "", audio: "" };
 
   const playAudio = () => {
     const audio = new Audio(phonetics.audio);
@@ -28,11 +27,8 @@ const DisplayWord = ({ word }) => {
       synonyms: each.synonyms,
     };
   });
-  // console.log(data[0].meanings.map((each) => each.synonyms).flat());
-  // console.log(meanings);
   const sourceUrl = data[0].sourceUrls;
 
-  //   console.log(data, isLoading, error);
   return (
     <div className="w-full">
       <div className="flex items-center justify-between">

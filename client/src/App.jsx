@@ -3,7 +3,6 @@ import { Logo, Moon, MoonDark } from "./assets/images";
 import ToggleSwitch from "./components/ToggleSwitch";
 import Dropdown from "./components/Dropdown";
 import Search from "./components/Search";
-import NewSearch from "./components/NewSearch";
 import { useToggle } from "./hooks/useToggle";
 import DisplayWord from "./components/DisplayWord";
 export default function App() {
@@ -14,11 +13,11 @@ export default function App() {
   return (
     <div className={`${font} ${isDark ? "dark bg-black" : ""}`}>
       <div
-        className={`w-full max-w-[736px] mx-auto min-h-screen h-auto flex flex-col justify-start items-center gap-5 p-6 md:px-10 dark:bg-black1 dark:text-white`}
+        className={`w-full max-w-[736px] mx-auto min-h-screen h-auto flex flex-col justify-start items-center gap-3 p-6 md:px-10 dark:bg-black1 dark:text-white`}
       >
         <div className="flex items-center justify-between w-full ">
           <div className="logo">
-            <Logo />
+            <Logo className="hover:cursor-pointer" />
           </div>
           <div className="flex items-center justify-center gap-5">
             <Dropdown setFont={setFont} />
@@ -27,12 +26,7 @@ export default function App() {
           </div>
         </div>
         <div className="w-full">
-          <Search
-            word={word}
-            setWord={setWord}
-            // toggleValidated={toggleValidated}
-          />
-          <NewSearch />
+          <Search word={word} setWord={setWord} />
         </div>
         <div className="w-full"></div>
         {<DisplayWord word={word} />}

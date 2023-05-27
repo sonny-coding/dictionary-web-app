@@ -1,6 +1,6 @@
 const Error = () => {
   return (
-    <div className="flex flex-col items-center justify-center w-full mt-[100px]">
+    <div className="flex flex-col items-center justify-center w-full mt-6">
       <p className="text-5xl">😕</p>
       <p className="mt-[38px] font-bold text-[20px] leading-[24px] text-black3 dark:text-white">
         No definitions Found
