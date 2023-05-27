@@ -58,10 +58,10 @@ const DisplayWord = ({ word }) => {
       ))}
       <div className="flex flex-col w-full text-[14px] font-normal leading-[18px] underline underline-offset-4 border-t-[1px] border-gray2 mt-8 mb-8">
         <span className="mt-6 text-gray1">Source</span>
-        <div className="flex items-center mt-2 justify-normal">
+        <a href={sourceUrl} className="flex items-center mt-2 justify-normal">
           <span>{sourceUrl}</span>
           <IconNewWindow className="ml-1" />
-        </div>
+        </a>
       </div>
     </div>
   );

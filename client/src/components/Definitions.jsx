@@ -21,8 +21,10 @@ const Definitions = ({ partOfSpeech, definitions, synonyms }) => {
           </li>
         ))}
       </ul>
-      <div className="w-full flex items-start justify-start text-[16px] leading-[20px] md:text-[20px] md:leading-[21px] lg:leading-[26px] flex-wrap mt-6">
-        <span className="mr-10 font-normal text-gray1">Synonyms</span>
+      <div className="w-full flex items-start justify-start text-[16px] leading-[20px] md:text-[20px] md:leading-[21px] lg:leading-[30px] flex-wrap mt-6 [&>*]:my-[3px]">
+        {synonyms.length >= 1 && (
+          <span className="mr-10 font-normal text-gray1">Synonyms</span>
+        )}
         {synonyms.map((each, index) => (
           <span className="inline font-bold text-purple" key={index}>
             {each}

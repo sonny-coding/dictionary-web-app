@@ -24,7 +24,7 @@ export default {
         search: 'url("./src/assets/images/icon-search.svg")',
       },
       backgroundPosition: {
-        "right-4": "right 2rem center",
+        "right-2": "right 1rem center",
       },
     },
   },

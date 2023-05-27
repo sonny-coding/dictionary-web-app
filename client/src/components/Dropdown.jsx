@@ -1,10 +1,18 @@
 import { ArrowDown } from "../assets/images";
 import { useToggle } from "../hooks/useToggle";
-import { useState } from "react";
+// import { useState } from "react";
 // eslint-disable-next-line react/prop-types
-const Dropdown = ({ setFont }) => {
+const Dropdown = ({ setFont, font }) => {
   const [isOpen, toggleIsOpen] = useToggle(false);
-  const [fontName, setFontName] = useState("San Serif");
+  // const [fontName, setFontName] = useState("San Serif");
+  let fontName = "";
+  if (font === "font-inter") {
+    fontName = "San Serif";
+  } else if (font === "font-lora") {
+    fontName = "Serif";
+  } else {
+    fontName = "Mono";
+  }
   return (
     <div className="relative">
       <button
@@ -20,7 +28,7 @@ const Dropdown = ({ setFont }) => {
             className="font-inter"
             onClick={() => {
               setFont("font-inter");
-              setFontName("San Serif");
+              // setFontName("San Serif");
               toggleIsOpen();
             }}
           >
@@ -30,7 +38,7 @@ const Dropdown = ({ setFont }) => {
             className="font-lora"
             onClick={() => {
               setFont("font-lora");
-              setFontName("Serif");
+              // setFontName("Serif");
               toggleIsOpen();
             }}
           >
@@ -40,7 +48,7 @@ const Dropdown = ({ setFont }) => {
             className="font-inconsolata"
             onClick={() => {
               setFont("font-inconsolata");
-              setFontName("Mono");
+              // setFontName("Mono");
               toggleIsOpen();
             }}
           >

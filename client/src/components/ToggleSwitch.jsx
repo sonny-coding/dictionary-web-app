@@ -1,14 +1,15 @@
 // eslint-disable-next-line react/prop-types
-const ToggleSwitch = ({ toggleDark }) => {
+const ToggleSwitch = ({ isDark, toggleDark }) => {
   const handleChange = () => {
     toggleDark();
   };
   return (
     <label
       htmlFor="check"
-      className="relative w-10 h-5 overflow-hidden rounded-full"
+      className="relative w-10 h-5 overflow-hidden rounded-full hover:cursor-pointer"
     >
       <input
+        checked={isDark}
         className="sr-only peer"
         type="checkbox"
         id="check"

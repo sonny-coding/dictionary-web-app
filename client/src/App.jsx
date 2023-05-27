@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Logo, Moon, MoonDark } from "./assets/images";
 import ToggleSwitch from "./components/ToggleSwitch";
 import Dropdown from "./components/Dropdown";
@@ -7,9 +7,20 @@ import { useToggle } from "./hooks/useToggle";
 import DisplayWord from "./components/DisplayWord";
 export default function App() {
   const [word, setWord] = useState("keyboard");
-  const [font, setFont] = useState("font-inter");
-  const [isDark, toggleDark] = useToggle();
+  const [font, setFont] = useState(
+    localStorage.getItem("current-font") || "font-inter"
+  );
+  const [isDark, toggleDark] = useToggle(
+    localStorage.getItem("current-theme") === "dark"
+  );
 
+  useEffect(() => {
+    localStorage.setItem("current-theme", isDark ? "dark" : "light");
+  }, [isDark]);
+
+  useEffect(() => {
+    localStorage.setItem("current-font", font);
+  }, [font]);
   return (
     <div className={`${font} ${isDark ? "dark bg-black" : ""}`}>
       <div
@@ -20,9 +31,11 @@ export default function App() {
             <Logo className="hover:cursor-pointer" />
           </div>
           <div className="flex items-center justify-center gap-5">
-            <Dropdown setFont={setFont} />
+            <Dropdown setFont={setFont} font={font} />
             <ToggleSwitch isDark={isDark} toggleDark={toggleDark} />
-            {isDark ? <MoonDark /> : <Moon />}
+            <div className="hover:cursor-pointer">
+              {isDark ? <MoonDark /> : <Moon />}
+            </div>
           </div>
         </div>
         <div className="w-full">

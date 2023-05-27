@@ -24,11 +24,11 @@ const Search = ({ word, setWord }) => {
     <div className="w-full">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex items-center justify-center"
+        className="flex items-center justify-center mt-5"
       >
         {/* register your input into the hook by invoking the "register" function */}
         <input
-          className={`w-full bg-gray3 dark:bg-black2 text-[16px] leading-[17px] font-bold placeholder:text-gray1 pl-4 pr-8 py-3 outline-none  text-black3 dark:text-white rounded-2xl focus:border-[1px] ${border}`}
+          className={`w-full bg-search bg-no-repeat bg-right-2 bg-gray3 dark:bg-black2 text-[16px] leading-[17px] font-bold placeholder:text-gray1 pl-4 pr-8 py-3 outline-none  text-black3 dark:text-white rounded-2xl focus:border-[1px] ${border}`}
           defaultValue={word}
           placeholder="search for any word..."
           {...register("textInput", { required: "Whoops, can't be empty..." })}
